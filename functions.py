@@ -12,7 +12,7 @@ import json
 from datetime import datetime
 
 
-async def _async_coroutine(session, url, headers, data, callback=lambda _: _):
+async def _async_coroutine(session, url, headers, data, callback=lambda: _):
     async with session.post(url, headers=headers, json=data) as response:
         response = await response.text()
         callback()
