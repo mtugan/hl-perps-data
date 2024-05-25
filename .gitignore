@@ -6,3 +6,5 @@ share
 .env
 pyvenv.cfg
 __pycache__
+archive
+*.png

@@ -1,9 +1,11 @@
+import sys
+
 # Data fetching
 import requests
 import asyncio
 import aiohttp
 
-# Data processiong
+# Data processing
 import json
 
 # Time
@@ -23,6 +25,13 @@ def fetch_hyperliquid_universe():
 
 
 def fetch_hyperliquid_tokens(hl_universe_reponse):
+    if not hl_universe_reponse:
+        raise Exception(
+            "Something went wrong with fetching data from Hyperliquid, error:\n"
+            + hl_universe_reponse.text
+        )
+        sys.exit(0)
+
     return [coin["name"] for coin in hl_universe_reponse["universe"]]
 
 
